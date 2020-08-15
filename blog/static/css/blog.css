@@ -1,5 +1,5 @@
 .page-header {
-    background-color: #C25100;
+    background-color: #0d00c2;
     margin-top: 0;
     padding: 20px 20px 20px 40px;
     }
@@ -12,7 +12,7 @@
     margin-left: 40px;
     }
     h1, h2, h3, h4 {
-    font-family: 'Lobster', cursive;
+    font-family: 'Lobster';
     }
     .date {
     color: #828282;
