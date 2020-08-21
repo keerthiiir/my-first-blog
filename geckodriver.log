@@ -1,0 +1,20 @@
+1598035657610	geckodriver	INFO	Listening on 127.0.0.1:54563
+1598035658644	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "-foreground" "-no-remote" "-profile" "/var/folders/r0/k9lp6vwj69d2klr1d38r7dt00000gn/T/rust_mozprofileuqUeEN"
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1598035661784	Marionette	INFO	Listening on port 54570
+1598035661830	Marionette	WARN	TLS certificate errors will be ignored for this session
+1598035684331	geckodriver	INFO	Listening on 127.0.0.1:54630
+1598035684346	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "-foreground" "-no-remote" "-profile" "/var/folders/r0/k9lp6vwj69d2klr1d38r7dt00000gn/T/rust_mozprofileyOzmUt"
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1598035686763	Marionette	INFO	Listening on port 54635
+1598035686783	Marionette	WARN	TLS certificate errors will be ignored for this session
+1598035736454	geckodriver	INFO	Listening on 127.0.0.1:54699
+1598035737482	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "-foreground" "-no-remote" "-profile" "/var/folders/r0/k9lp6vwj69d2klr1d38r7dt00000gn/T/rust_mozprofile5NiIf0"
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1598035739841	Marionette	INFO	Listening on port 54706
+1598035739921	Marionette	WARN	TLS certificate errors will be ignored for this session
+1598035787637	geckodriver	INFO	Listening on 127.0.0.1:54764
+1598035788664	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "-foreground" "-no-remote" "-profile" "/var/folders/r0/k9lp6vwj69d2klr1d38r7dt00000gn/T/rust_mozprofileGU5ZyP"
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1598035791188	Marionette	INFO	Listening on port 54771
+1598035791211	Marionette	WARN	TLS certificate errors will be ignored for this session

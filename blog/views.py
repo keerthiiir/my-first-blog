@@ -5,8 +5,12 @@ from .models import Post
 from .models import CVPost
 from django.shortcuts import render, get_object_or_404
 from .forms import PostForm
+from .forms import CVPostForm
 
 # Create your views here.
+#def main_page(request):
+  #  return render(request,'blog/main_page.html')
+
 def post_list(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
     return render(request, 'blog/post_list.html', {'posts' : posts})
@@ -45,3 +49,30 @@ def post_edit(request, pk):
 def CVpost_list(request):
     posts = CVPost.objects.filter(created_date__lte=timezone.now()).order_by('created_date')
     return render(request, 'blog/CVpost_list.html', {'posts' : posts})
+
+def CVpost_new(request):
+    if request.method == "POST":
+        form = CVPostForm(request.POST)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.author = request.user
+            post.created_date = timezone.now()
+            post.save()
+            return redirect('CVpost_list')
+    else:
+        form = CVPostForm()
+    return render(request, 'blog/CVpost_edit.html', {'form': form})
+
+def CVpost_edit(request, pk):
+    post = get_object_or_404(CVPost, pk=pk)
+    if request.method == "POST":
+        form = CVPostForm(request.POST, instance=post)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.author = request.user
+            post.created_date = timezone.now()
+            post.save()
+            return redirect('CVpost_list')
+    else:
+        form = CVPostForm(instance=post)
+    return render(request, 'blog/CVpost_edit.html', {'form': form})

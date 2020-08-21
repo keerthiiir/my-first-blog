@@ -1,17 +1,81 @@
-<html>
-<body>
-    <div>
-        <h1><a href="/">Django Girls Blog</a></h1>
+{% extends 'blog/base.html' %}
+
+{% block header %}
+    {% if user.is_authenticated %}
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="{% url 'CVpost_new' %}"><span class="glyphicon glyphicon-plus"></span></a></li>
+        </ul>        
+    {% endif %}
+{% endblock %}
+
+
+{% block content %}
+    <div class="Education">
+        <h2>Education</h2>
+        <p><Strong>A-Levels</Strong></p>
+        <ul>
+            <li>Mathematics</li>
+            <li>Further Mathematics</li>
+            <li>Computer Science</li>
+            <li>EPQ</li>
+        </ul>
+
+        <p></p>
+
+        <p><Strong>GCSEs</Strong></p>
+        <ul>
+            <li>14 GCSEs with 4 A*s, 8 As and 2 Bs, including English, Triple Science and 3 Maths qualifications</li>
+        </ul>
+
+        <p><Strong>Other qualifications</Strong></p>
+        <ul>
+            <li>LIBF Level 2 Certificate in Financial Education</li>
+            <li>Duke of Edinburgh Bronze Award</li>
+        </ul>
     </div>
-        
+
+    <div class="Skills">
+        <h2>Technical Skills</h2>
+        <p><Strong>Proficient</Strong></p>
+        <ul>
+            <li>Java</li>
+            <li>C</li>
+            <li>Python</li>
+            <li>Haskell</li>
+        </ul>
+        <p><Strong>Beginner</Strong></p>
+        <ul>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>PHP</li>
+        </ul>
+    </div>
+
+    <div>
+        <h2>Work Experience</h2>
+    </div>
     {% for post in posts %}
-        
-        <div>
-            <h2><a href="">{{ post.job_title }}</a></h2>
+        <div class="CV Post">
+            {% if user.is_authenticated %}
+            <a class="btn btn-default" href="{% url 'CVpost_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></sp
+            an></a>
+            {% endif %}
+            <h3>{{ post.job_title }}</h3>
+            <p class="duration"><strong>{{post.job_duration|linebreaksbr}}</strong></p>
             <p>{{ post.job_description|linebreaksbr }}</p>
         </div>
     {% endfor %}
-    
 
-</body>
-</html>
+    <div class="Hobbies and Interests">
+        <h2>Hobbies and Interests</h2>
+        <p><Strong>Technology related interests:</Strong></p>
+        <ul>
+            <li><strong>Minorities in Tech:</strong> Having first-hand experience being a minority in technology, I am extremely passionate about improving the obvious disparity in the industry, whether it’s with women or BAME people. I have continuously volunteered to help with programs/events related to the cause, e.g. speaking on panels, getting involved with the Women in Tech program at PwC, being Equality, Diversity, Inclusivity(EDI) Rep for Computer Science Society and the Student Rep on the EDI committee for the School of Computer Science at my university. </li>
+            <li><strong>Outreach:</strong> Over the years, I have benefited from numerous outreach programs. As a result, I would like to give back to the community and often assisted with many outreach events, where I helped run technology workshops, advise and share my experiences with younger students. 
+            </li>
+            <li><strong>Hackathons:</strong> When I am able to, I often enjoy attending hackathons as I find they are a great opportunity to meet others in the industry and to challenge my technical skills. I particularly enjoyed the IBM Qiskit Hackathon, where my team created a game on a Pew Pew and won joint first place. </li>
+        </ul>
+        <p></p>
+        <p>In addition to my interests within technology, I also have many hobbies outside of it. During my free time, I practice various creative activities, such as nail art, henna, embroidery and cake decorating. Over the years, I have also participated in different sports clubs such as karate, taekwondo and archery.</p>
+    </div>
+{% endblock %}
