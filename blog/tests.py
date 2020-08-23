@@ -2,7 +2,8 @@ from django.urls import resolve
 from django.test import TestCase
 from django.http import HttpRequest
 from django.template.loader import render_to_string
-from blog.views import post_list
+import blog.views
+
 
 class HomePageTest(TestCase):
 
@@ -14,8 +15,18 @@ class HomePageTest(TestCase):
         response = self.client.get('/')
         
         html = response.content.decode('utf8')
-        #self.assertTrue(html.startswith('<html>'))
         self.assertIn("<title>Keerthi's blog</title>", html)
-        #self.assertTrue(html.strip().endswith('</html>'))
 
         self.assertTemplateUsed(response, 'blog/post_list.html')
+
+    def test_uses_Postedit_template(self):
+        response = self.client.get('/post/new/')
+        self.assertTemplateUsed(response, 'blog/post_edit.html')
+
+    def test_uses_CV_template(self):
+        response = self.client.get('/CV/')
+        self.assertTemplateUsed(response, 'blog/CVpost_list.html')
+
+    def test_uses_CVedit_template(self):
+        response = self.client.get('/CV/new/')
+        self.assertTemplateUsed(response, 'blog/CVpost_edit.html')

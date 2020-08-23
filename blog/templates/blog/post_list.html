@@ -10,6 +10,9 @@
 {% endblock %}
 
 {% block content %}
+    <div class="Title">
+        <h1><strong>Welcome to Keerthi's blog</strong></h1>
+    </div>
     {% for post in posts %}
         <div class="post">
             {% if user.is_authenticated %}
